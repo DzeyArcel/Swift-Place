@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  
+}
+
+
+body {
+    text-align: center;
+    background-color: #f9f9f9;
+    overflow-x: hidden; 
+ 
+}
+
+/* Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Logo Section */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 30px;
+}
+
+.logo-img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.logo-text {
+    font-size: 1.8em;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #3e82e9, #db58fc); /* Fiverr-like green gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+/* Navigation */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-left {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-left li {
+    margin-right: 20px;
+}
+
+.nav-left li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-left li a:hover {
+    color: rgb(67, 105, 244);
+    
+}
+
+/* Right Section: Search, Sign Up, and Profile Logo */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Bar */
+.search-bar {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Sign Up Button */
+.nav-right .btn {
+    text-decoration: none;
+    background: rgb(67, 105, 244);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.nav-right .btn:hover {
+    background: rgb(45, 80, 200);
+    
+}
+
+
+
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: url('photos/pexels-samson-katt-5256142.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Poppins:wght@600&display=swap');
+
+.hero h1 {
+    font-size: 4.5em;
+    font-family: 'Baloo 2', sans-serif; /* Friendly & engaging font */
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    background: linear-gradient(90deg, #67b0ff, #1DBF73); /* Smooth gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 10px rgba(103, 176, 255, 0.3);
+}
+
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    margin-top: 5px;
+}
+
+/* Button */
+.btn.primary {
+    text-decoration: none;
+    background: rgb(67, 105, 244);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn.primary:hover {
+    background: rgb(45, 80, 200);
+}
+
+
+/* Categories Section */
+.categories {
+    text-align: left;
+    padding: 40px;
+    margin: 40px;
+}
+
+.categories h2 {
+    font-size: 2.5em; /* Increased font size */
+    margin-bottom: 25px;
+}
+
+/* Grid Layout */
+.category-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    padding-bottom: 15px;
+}
+
+/* Category Cards */
+.category {
+    width: 220px; /* Increased width */
+    height: 300px; /* Increased height */
+    border-radius: 20px;
+    text-align: left;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.category:hover {
+    transform: scale(1.08);
+}
+
+/* Category Titles */
+.category span {
+    font-size: 1.3em; /* Increased font size */
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Category Images */
+.category::after {
+    content: "";
+    width: 100%;
+    height: 60%; /* Increased image size */
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+}
+
+/* Assign Different Background Colors */
+.web-design { background: #e91e63; } /* Pink */
+.graphic-design { background: #2e7d32; } /* Green */
+.content-writing { background: #c62828; } /* Red */
+.digital-marketing { background: #827717; } /* Olive */
+.seo-services { background: #1b5e20; } /* Dark Green */
+.video-editing { background: #d81b60; } /* Deep Pink */
+
+/* Assign Images */
+.web-design::after { background-image: url('your-image-url.jpg'); }
+.graphic-design::after { background-image: url('your-image-url.jpg'); }
+.content-writing::after { background-image: url('your-image-url.jpg'); }
+.digital-marketing::after { background-image: url('your-image-url.jpg'); }
+.seo-services::after { background-image: url('your-image-url.jpg'); }
+.video-editing::after { background-image: url('your-image-url.jpg'); }
+
+
+
+
+/* Benefits Section */
+.benefits {
+    margin-top: 10px;
+    text-align: center;
+    padding: 60px 20px; /* Increased padding for better spacing */
+    background: #f8f9fa; /* Light background for contrast */
+}
+
+/* Section Title */
+.benefits h2 {
+    padding-bottom: 20px;
+    font-size: 2.8em; /* Increased font size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: "Poppins", sans-serif; /* Modern font */
+}
+
+/* Benefit Grid */
+.benefit-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* Increased gap for better spacing */
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Individual Benefit */
+.benefit {
+    text-align: center;
+    width: 300px; /* Increased size */
+    padding: 30px; /* Added padding for better spacing */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+.benefit:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Benefit Icons */
+.benefit i {
+    font-size: 4rem; /* Increased icon size */
+    color: #9f04bd;
+    padding: 25px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Benefit Title */
+.benefit h3 {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #222;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 10px;
+}
+
+/* Benefit Description */
+.benefit p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Join Now Button */
+ .bton {
+
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 30px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+    background: #b005db;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+ .bton:hover {
+    background: #7906aa;
+}
+
+
+
+
+/* TALENT SECTION*/
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.cta-section {
+    padding: 80px 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* CTA Content Box with Background Image */
+.cta-container {
+    width: 85%;
+    height: 700px;
+    margin: auto;
+    background: url('photos/pexels-mart-production-7255419.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Headline Styling */
+.cta-container h2 {
+    font-size: 4.0em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+    margin-top: 200px;
+  
+}
+
+/* Subtext */
+.cta-container p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: px;
+    color: #ffffff;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    margin-top: 100px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #4CAF50, #2E8B57);
+    color: white;
+    padding: 50px 24px;
+    margin: 10px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 400;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Hover Effect */
+.cta-button:hover {
+    background: linear-gradient(135deg, #45a049, #226b47);
+    transform: scale(1.05);
+}
+
+
+/* Footer */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+footer {
+    background: #111;
+    color: white;
+    padding: 30px 20px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #1DBF73; /* Fiverr Green */
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    font-size: 1.5em;
+    color: white;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #1DBF73;
+}
+
+/* Copyright */
+footer p {
+    font-size: 0.9em;
+    color: #aaa;
+}
