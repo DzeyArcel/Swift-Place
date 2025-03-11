@@ -15,40 +15,40 @@
 
         <h2>Sign up to hire talent</h2>
 
-        <form id="signup-form">
+        <form action="../html/php/signup.php" method="POST">
             <div class="input-group">
                 <div>
                     <label for="first-name">First name</label>
-                    <input type="text" id="first-name" required>
+                    <input type="text" id="first-name" name="first_name" required>
                 </div>
                 <div>
                     <label for="last-name">Last name</label>
-                    <input type="text" id="last-name" required>
+                    <input type="text" id="last-name" name="last_name" required>
                 </div>
             </div>
-
+        
             <label for="email">Work email address</label>
-            <input type="email" id="email" required>
-
+            <input type="email" id="email" name="email" required>
+        
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Password (8 or more characters)" required>
-
+            <input type="password" id="password" name="password" placeholder="Password (8 or more characters)" required>
+        
             <label for="country">Country</label>
-            <select id="country" required>
+            <select id="country" name="country" required>
                 <option value="Philippines" selected>Philippines</option>
                 <option value="USA">United States</option>
                 <option value="UK">United Kingdom</option>
                 <option value="Canada">Canada</option>
                 <option value="India">India</option>
             </select>
-
-            <button type="submit" id="create-account">Create my account</button>
+        
+            <button type="submit">Create my account</button>
         </form>
+        
         
         <p class="login-text">Already have an account? <a href="#">Log In</a></p>
         <p class="apply-text">Apply as Freelancer? <a href="choose.html">Apply Here</a></p>
     </div>
 
-    <script src="../html/jscript/client.js"></script>
 </body>
 </html>

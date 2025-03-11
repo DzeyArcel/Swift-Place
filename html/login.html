@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftPlace Login</title>
+    <link rel="stylesheet" href="../html/css/loginstyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="../html/photos/Logos-removebg-preview.png" alt="SwiftPlace Logo" class="logo-img">
+        </div>
+        <p class="message">Enter your email and password to access your account.</p>
+
+        <form action="../php/login.php" method="POST">
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn green">Log In</button>
+        </form>
+
+        <div class="signup-section">
+            <p class="signup-text">Don't have a SwiftPlace account?</p>
+            <a href="../html/choose.html" class="btn signup">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Profile Setup</title>
-    <link rel="stylesheet" href="../html/css/clientprof.css">
+    <link rel="stylesheet" href="../html/php/clientprof.css">
 </head>
 <body>
     <div class="container">
@@ -14,85 +14,94 @@
             </div>
             <h2>Complete Your Profile</h2>
         </div>
-        <form action="submit-profile.php" method="POST" enctype="multipart/form-data">
-            <div class="grid-container">
-                <div class="input-group">
-                    <label for="profile-picture">Profile Picture</label>
-                    <input type="file" id="profile-picture" name="profile_picture">
-                </div>
-                <div class="input-group">
-                    <label for="company-name">Company Name (If applicable)</label>
-                    <input type="text" id="company-name" name="company_name">
-                </div>
-                <div class="input-group">
-                    <label for="industry">Business Industry</label>
-                    <input type="text" id="industry" name="industry" required>
-                </div>
-                <div class="input-group">
-                    <label for="job-type">Job Type</label>
-                    <select id="job-type" name="job_type" required>
-                        <option value="full-time">Full-Time</option>
-                        <option value="part-time">Part-Time</option>
-                        <option value="contract">Contract</option>
-                        <option value="freelance">Freelance</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="payment-type">Payment Type</label>
-                    <select id="payment-type" name="payment_type" required>
-                        <option value="hourly">Hourly</option>
-                        <option value="fixed">Fixed Price</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="experience-level">Experience Level</label>
-                    <select id="experience-level" name="experience_level" required>
-                        <option value="entry">Entry Level</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="expert">Expert</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="category">Job Category</label>
-                    <select id="category" name="category" required>
-                        <option value="it">IT & Development</option>
-                        <option value="design">Design & Creative</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="writing">Writing & Translation</option>
-                        <option value="editing">Editing & Proofreading</option>
-                        <option value="music">Music & Audio</option>
-                        <option value="finance">Finance & Accounting</option>
-                        <option value="consulting">Consulting</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="preferred-communication">Preferred Communication</label>
-                    <select id="preferred-communication" name="preferred_communication" required>
-                        <option value="email">Email</option>
-                        <option value="phone">Phone</option>
-                        <option value="chat">Chat</option>
-                        <option value="video">Video Call</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="budget">Budget Preferences</label>
-                    <input type="text" id="budget" name="budget" required>
-                </div>
-                <div class="input-group">
-                    <label for="payment-method">Payment Method</label>
-                    <select id="payment-method" name="payment_method" required>
-                        <option value="credit-card">Credit Card</option>
-                        <option value="paypal">PayPal</option>
-                        <option value="bank-transfer">Bank Transfer</option>
-                    </select>
-                </div>
-            </div>
-            <div class="button-container">
-                <button type="submit" class="button"><a href="../html/clientdashboard.html">Save & Continue</a>   </button>
-            </div>
-        </form>
+
+        <form action="../php/submit-profile.php" method="POST" enctype="multipart/form-data">
+
+        <input type="hidden" name="user_email" value="<?php echo $_SESSION['user_email']; ?>">
+
+    <div class="grid-container">
+        <div class="input-group">
+            <label for="profile-picture">Profile Picture</label>
+            <input type="file" id="profile-picture" name="profile_picture">
+        </div>
+        <div class="input-group">
+            <label for="company-name">Company Name (If applicable)</label>
+            <input type="text" id="company-name" name="company_name">
+        </div>
+        <div class="input-group">
+            <label for="industry">Business Industry</label>
+            <input type="text" id="industry" name="industry" required>
+        </div>
+        <div class="input-group">
+            <label for="job-type">Job Type</label>
+            <select id="job-type" name="job_type" required>
+                <option value="full-time">Full-Time</option>
+                <option value="part-time">Part-Time</option>
+                <option value="contract">Contract</option>
+                <option value="freelance">Freelance</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="payment-type">Payment Type</label>
+            <select id="payment-type" name="payment_type" required>
+                <option value="hourly">Hourly</option>
+                <option value="fixed">Fixed Price</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="experience-level">Experience Level</label>
+            <select id="experience-level" name="experience_level" required>
+                <option value="entry">Entry Level</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="expert">Expert</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="category">Job Category</label>
+            <select id="category" name="category" required>
+                <option value="it">IT & Development</option>
+                <option value="design">Design & Creative</option>
+                <option value="marketing">Marketing</option>
+                <option value="writing">Writing & Translation</option>
+                <option value="editing">Editing & Proofreading</option>
+                <option value="music">Music & Audio</option>
+                <option value="finance">Finance & Accounting</option>
+                <option value="consulting">Consulting</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="preferred-communication">Preferred Communication</label>
+            <select id="preferred-communication" name="preferred_communication" required>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="chat">Chat</option>
+                <option value="video">Video Call</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="budget">Budget Preferences</label>
+            <input type="text" id="budget" name="budget" required>
+        </div>
+        <div class="input-group">
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" name="payment_method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+            </select>
+        </div>
+    </div>
+    <div class="button-container">
+        <button type="submit">Save & Continue</button>
+    </div>
+  
+</form>
+
     </div>
 
-    <script src="../html/jscript/clientprofile.js"></script>
+<? echo "Redirecting to: http://localhost/SwiftPlace/html/php/clientprofile.php";
+exit();
+?>
+    
 </body>
 </html>

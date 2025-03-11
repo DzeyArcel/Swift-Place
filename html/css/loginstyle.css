@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.container {
+    background: white;
+    padding: 45px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.message {
+    font-size: 14px;
+    color: #8a8a8a;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.green {
+    background-color: #a310e1;
+    color: white;
+}
+
+.signup-text {
+    font-size: 14px;
+    color: #8a8a8a;
+    margin-top: 15px;
+}
+
+.signup {
+    background: none;
+    border: 1px solid #14a800;
+    color: #14a800;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align logo to the left */
+    gap: 10px;
+    padding-right: 30px;
+    padding-left: 55px;
+    margin-bottom: 25px;
+}
+
+
+.logo-img {
+    width: 200px; /* Increased size */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 65px; /* Prevents overflow */
+}
