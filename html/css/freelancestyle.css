@@ -4,24 +4,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 110vh;
+    height: 100vh;
     margin: 0;
     background: url('../photos/pexels-vojtech-okenka-127162-392018.jpg') no-repeat center center/cover;
 }
 
 .signup-container {
     background: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 45px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
     width: 500px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.signup-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Logo Styling */
 .logo-container {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .logo-img {
@@ -29,12 +35,15 @@ body {
     height: auto;
 }
 
+/* Headings */
 h2 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
     margin-bottom: 20px;
+    color: #333;
 }
 
+/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
@@ -43,63 +52,76 @@ form {
 
 .input-group {
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 10px;
 }
 
 .input-group div {
     flex: 1;
 }
 
+/* Labels */
 label {
     font-size: 14px;
     font-weight: 500;
-    margin: 10px 0 5px;
+    margin: 12px 0 6px;
     display: block;
 }
 
+/* Input and Select */
 input, select {
-    width: 85%;
-    padding: 10px;
+    width: 95%;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10px;
 }
 
+/* Input Focus Effect */
+input:focus, select:focus {
+    border-color: #0a8000;
+    box-shadow: 0px 4px 10px rgba(10, 128, 0, 0.2);
+    outline: none;
+}
 
-
+/* Button Styling */
 button {
     background-color: #0a8000;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 16px;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 18px;
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
     background-color: #065c00;
+    box-shadow: 0px 5px 15px rgba(10, 128, 0, 0.4);
+    transform: translateY(-2px);
 }
 
-.login-text {
-margin-top: 25px;
-    font-size: 14px;
-   text-align: left;
-}
-
-.login-text a {
-    color: green;
-    text-decoration: none;
-}
-
-.apply-text {
+/* Login & Apply Text */
+.login-text, .apply-text {
+    margin-top: 20px;
+    font-size: 15px;
     text-align: left;
-    font-size: 14px;
+    color: #555;
 }
 
-.apply-text a {
-    color: green;
+.login-text a, .apply-text a {
+    color: #0a8000;
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
 }
 
+.login-text a:hover, .apply-text a:hover {
+    color: #065c00;
+    text-decoration: underline;
+}

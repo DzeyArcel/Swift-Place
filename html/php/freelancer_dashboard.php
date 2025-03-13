@@ -25,7 +25,6 @@ if (!isset($_SESSION['freelancer'])) {
             <input type="text" placeholder="Search for services...">
             <nav>
                 <a href="#">My Jobs</a>
-                <a href="#">Earnings</a>
                 <a href="#">Profile</a>
                 <a href="../php/logout.php">Logout</a>
             </nav>
@@ -48,14 +47,34 @@ if (!isset($_SESSION['freelancer'])) {
         </div>
     </section>
 
-    <section class="earnings">
-        <h2>Your Earnings</h2>
-        <p>Total Earnings: <strong>$1,200</strong></p>
-        <button>Withdraw Funds</button>
+    <section class="job-listings">
+        <h2>Services</h2>
+        <div class="job-cards">
+            
+        </div>
     </section>
 
+    
     <footer>
-        <p>&copy; 2024 SwiftPlace - Freelancer Platform</p>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">Pricing</a>
+                <a href="#">About Us</a>
+                <a href="#">Features</a>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 Swift Place - Privacy - Terms - Sitemap</p>
+        </div>
     </footer>
+    
 </body>
 </html>

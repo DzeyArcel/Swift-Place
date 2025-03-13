@@ -11,27 +11,31 @@
     <header>
         <div class="logo-container">
             <img src="../html/photos/Logos-removebg-preview.png" alt="Logo" class="logo-img">
-           
         </div>
         <div class="nav-container">
             <nav>
                 <ul class="nav-left">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="service.html">Services</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="freelancer_login.html">Login</a></li>
+                    <li class="dropdown">
+                        <a href="#">
+                            Login <i class="fa-solid fa-chevron-down"></i> <!-- Dropdown Icon -->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="login.html"><i class="fa-solid fa-user"></i>Client Login</a></li>
+                            <li><a href="freelancer_login.html"><i class="fa-solid fa-briefcase"></i> Freelancer Login</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="nav-right">
-                <div class="search-container">
-                    <input type="text" placeholder="Search..." class="search-bar">
-                    <i class="fas fa-search search-icon"></i>
-                </div>
                 <a href="../html/register.html" class="btn">Sign Up</a>
             </div>
-            
         </div>
     </header>
+    
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
+    
     
     
 
@@ -99,6 +103,46 @@
 </section>
 
 
+<section class="premium-section">
+    <div class="premium-content">
+        <div class="premium-text">
+            <h2>Empowering <span class="highlight">businesses</span> with top-tier freelance talent</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div>
+                        <h4>Expert Talent Matching</h4>
+                        <p>Get paired with highly skilled professionals who align with your project’s goals.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div>
+                        <h4>Guaranteed Satisfaction</h4>
+                        <p>Enjoy risk-free hiring with refund policies for unsatisfactory deliveries.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div>
+                        <h4>Seamless Project Management</h4>
+                        <p>Access tools that simplify collaboration and enhance workflow efficiency.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <div>
+                        <h4>Flexible Payment Solutions</h4>
+                        <p>Choose between per-project pricing or hourly rates tailored to your needs.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="register.html" class="btn">Get Started</a>
+        </div>
+    </div>
+</section>
+
+
     
 
     <footer>
@@ -124,4 +168,5 @@
     
 
 </body>
+<script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
 </html>

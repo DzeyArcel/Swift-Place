@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -10,87 +10,136 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f8f9fa;
+    background: #f4f4f4; /* Light gray for a soft contrast */
+    padding: 20px;
 }
 
 .container {
-    background: white;
+    background: #fff;
     padding: 45px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
     width: 400px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 15px 30px rgba(247, 2, 226, 0.2);
 }
 
 h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
 }
 
 .message {
-    font-size: 14px;
-    color: #8a8a8a;
-    margin-bottom: 20px;
+    font-size: 15px;
+    color: #777;
+    margin-bottom: 25px;
 }
 
 .input-group {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
+    margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
 }
 
+input:focus {
+    border-color: #6a0dad;
+    box-shadow: 0px 4px 10px rgba(106, 13, 173, 0.2);
+    outline: none;
+}
+
+/* Button Styling */
 .btn {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
+    padding: 12px;
+    margin: 12px 0;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Primary Button */
 .green {
-    background-color: #a310e1;
+    background: #6a0dad;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(106, 13, 173, 0.3);
+}
+
+.green:hover {
+    background: #570b9d;
+    box-shadow: 0px 6px 15px rgba(106, 13, 173, 0.4);
+}
+
+/* Sign-up Button */
+.signup {
+    background: none;
+    border: 2px solid #6a0dad;
+    color: #6a0dad;
+    text-decoration: none;
+    display: block;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.signup:hover {
+    background: #6a0dad;
     color: white;
 }
 
-.signup-text {
-    font-size: 14px;
-    color: #8a8a8a;
-    margin-top: 15px;
-}
-
-.signup {
-    background: none;
-    border: 1px solid #14a800;
-    color: #14a800;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
+/* Logo Styling */
 .logo-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align logo to the left */
+    justify-content: center;
     gap: 10px;
-    padding-right: 30px;
-    padding-left: 55px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-
 .logo-img {
-    width: 200px; /* Increased size */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 65px; /* Prevents overflow */
+    width: 180px; 
+    height: auto;
+    max-height: 60px;
+}
+
+/* Login Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #6a0dad;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(106, 13, 173, 0.3);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #570b9d;  /* Darker shade on hover */
+    box-shadow: 0px 6px 15px rgba(106, 13, 173, 0.4);
 }
