@@ -1,11 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['freelancer'])) {
+if (!isset($_SESSION['freelancer_id'])) {
     header("Location: ../freelancer_login.html");
     exit();
 }
 
-
+// Get freelancer name from session
+$freelancer_name = isset($_SESSION["freelancer_name"]) ? $_SESSION["freelancer_name"] : "Freelancer";
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +16,7 @@ if (!isset($_SESSION['freelancer'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freelancer Dashboard</title>
     <link rel="stylesheet" href="../css/freelancedash.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -25,7 +27,7 @@ if (!isset($_SESSION['freelancer'])) {
             <input type="text" placeholder="Search for services...">
             <nav>
                 <a href="#">My Jobs</a>
-                <a href="#">Profile</a>
+                <a href="../php/freelance_profile.php">Profile</a> <!-- Fixed path -->
                 <a href="../php/logout.php">Logout</a>
             </nav>
         </div>
@@ -33,7 +35,7 @@ if (!isset($_SESSION['freelancer'])) {
     
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome, <?php echo htmlspecialchars($_SESSION["freelancer"]); ?>!</h1>
+            <h1>Welcome, <?php echo htmlspecialchars($freelancer_name); ?>!</h1>
             <p>Find the best freelance projects and start working today.</p>
             <button>Explore Jobs</button>
         </div>
@@ -43,18 +45,17 @@ if (!isset($_SESSION['freelancer'])) {
     <section class="job-listings">
         <h2>Available Jobs</h2>
         <div class="job-cards">
-            
+            <!-- Job cards will be added here -->
         </div>
     </section>
 
     <section class="job-listings">
         <h2>Services</h2>
         <div class="job-cards">
-            
+            <!-- Services will be added here -->
         </div>
     </section>
 
-    
     <footer>
         <div class="footer-container">
             <div class="footer-links">
@@ -72,9 +73,8 @@ if (!isset($_SESSION['freelancer'])) {
                 <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
-            <p>&copy; 2024 Swift Place - Privacy - Terms - Sitemap</p>
+            <p>&copy; 2024 SwiftPlace - Privacy - Terms - Sitemap</p>
         </div>
     </footer>
-    
 </body>
 </html>
