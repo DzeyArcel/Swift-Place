@@ -1,12 +1,11 @@
 <?php
 session_start();
-
-// Redirect to login if the user is not logged in
-if (!isset($_SESSION['user_email'])) {
-    header("Location: login.html"); // Redirect to login page
+if (!isset($_SESSION['user'])) {
+    header("Location: ../login.html"); // Redirect if not logged in
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,21 +25,17 @@ if (!isset($_SESSION['user_email'])) {
             <nav>
                 <a href="#">Orders</a>
                 <a href="#">Messages</a>
-                <a href="../php/clientpage.php">Profile</a>
+                <a href="#">Profile</a>
                 <a href="logout.php">Logout</a>
-                <img src="../php/get_profile_picture.php?email=<?php echo $_SESSION['user_email']; ?>" alt="Profile Picture">
+               
             </nav>
         </div>
     </header>
     
     <section class="hero">
         <div class="hero-content">
-            <p>
-                Welcome, 
-                <?php 
-                    echo isset($_SESSION['first_name']) ? htmlspecialchars($_SESSION['first_name']) : "Guest"; 
-                ?>!
-            </p>
+        <h1>Welcome, <?php echo htmlspecialchars($_SESSION["user"]); ?>!</h1>
+     
             <h1>Meet Top Freelancers</h1>
             <p>Hire professionals to get your work done efficiently.</p>
             <button>Start Hiring</button>

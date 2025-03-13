@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     createAccountButton.addEventListener("click", function () {
         if (selectedRole === "client") {
-            window.location.href = "client.html"; // Link for Clients
+            window.location.href = "../html/client-signup.html"; // Make sure the path is correct
         } else if (selectedRole === "freelancer") {
-            window.location.href = "freelancer-signup.html"; // Link for Freelancers
+            window.location.href = "../html/freelancer-signup.html";
         }
     });
 });
