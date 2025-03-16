@@ -74,18 +74,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
 </head>
 <body>
 
-<div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>SwiftPlace</h2>
-        <ul>
-        <li><a href="freelancer_dashboard.php"><i class="fas fa-user"></i> Dashboard</a></li>
-            <li><a href="freelancer_profile.php"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a href="freelanceedit_profile.php"><i class="fas fa-edit"></i> Edit Profile</a></li>
-            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
+<header class="topbar">
+    <div class="logo-container">
+        <img src="../photos/Logos-removebg-preview.png" alt="Logo" class="logo-img">
     </div>
+    <nav class="nav-links">
+        <ul>
+            <li><a href="freelancer_dashboard.php"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="freelance_profile.php"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="freelanceedit_profile.php"><i class="fas fa-edit"></i> Edit Profile</a></li>
+            <li><a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+</header>
 
+<section class="Edit">
     <!-- Profile Edit Section -->
     <div class="profile-content">
         <h1>Edit Profile</h1>
@@ -114,7 +117,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
         </form>
     </div>
 </div>
-
-
+</section>
+<footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">Pricing</a>
+                <a href="#">About Us</a>
+                <a href="#">Features</a>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">FAQ</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 Swift Place - Privacy - Terms - Sitemap</p>
+        </div>
+    </footer>
 </body>
 </html>

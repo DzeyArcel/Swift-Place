@@ -1,11 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.html"); // Redirect if not logged in
     exit();
 }
-?>
 
+// Get user's first name (Avoid Undefined Index)
+$user_name = $_SESSION["user_name"] ?? "Guest";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,19 +25,15 @@ if (!isset($_SESSION['user'])) {
             </div>
             <input type="text" placeholder="Search for services...">
             <nav>
-                <a href="#">Orders</a>
-                <a href="#">Messages</a>
-                <a href="#">Profile</a>
-                <a href="logout.php">Logout</a>
-               
+                <a href="../php/client_profile.php">Profile</a>
+                <a href="../php/logout.php">Logout</a>
             </nav>
         </div>
     </header>
     
     <section class="hero">
         <div class="hero-content">
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION["user"]); ?>!</h1>
-     
+            <h1>Welcome, <?php echo htmlspecialchars($user_name); ?>!</h1>
             <h1>Meet Top Freelancers</h1>
             <p>Hire professionals to get your work done efficiently.</p>
             <button>Start Hiring</button>
@@ -43,7 +41,7 @@ if (!isset($_SESSION['user'])) {
     </section>
     
     <section class="recommendations">
-        <h2>Recommended For You</h2>
+        <h2>Freelancer's Services</h2>
         <div class="service-cards">
             <div class="card">Service 1</div>
             <div class="card">Service 2</div>
@@ -52,7 +50,7 @@ if (!isset($_SESSION['user'])) {
     </section>
     
     <section class="browsing-history">
-        <h2>Based on Your Browsing</h2>
+        <h2>Jobs</h2>
         <div class="service-cards">
             <div class="card">Freelancer 1</div>
             <div class="card">Freelancer 2</div>

@@ -1,5 +1,5 @@
-/* Import Poppins Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 
 /* Global Styles */
 body {
@@ -11,13 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Main Container */
-.container {
-    display: flex;
-    height: 100vh;
-}
-
-/* Top Bar - Premium Gradient */
 .topbar {
     width: 100%;
     background: linear-gradient(135deg, #5c258d, #4389a2);
@@ -27,12 +20,12 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-    position: fixed;
     top: 0;
     left: 0;
     height: 70px;
     z-index: 1000;
     transition: 0.4s ease-in-out;
+  
     }
 
 /* Logo Styling */
@@ -66,7 +59,7 @@ body {
 }
 
 .nav-links ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 /* Navigation Buttons - Sleek Look */
@@ -106,111 +99,85 @@ body {
     transform: scale(1.1);
 }
 
-/* Profile Content */
-.profile-content {
-    margin-left: 280px;
-    padding: 50px;
-    width: calc(100% - 280px);
-    margin-top: 80px;
+/* Stylish Form Container */
+.container {
+    width: 50%;
+    margin: 120px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    color: black;
+    text-align: center;
 }
 
-/* Profile Header - Glassmorphism */
-.profile-header {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+h2 {
+    color: #5c258d;
+}
+
+/* Form Styling */
+form {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    backdrop-filter: blur(10px);
-    transition: 0.3s ease-in-out;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.profile-header:hover {
-    transform: translateY(-5px);
+label {
+    font-weight: bold;
+    color: #333;
 }
 
-.profile-header h1 {
-    font-size: 26px;
-    color: white;
+textarea, input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
-/* Edit Button */
-.profile-header .edit-btn {
+/* Update Button */
+.update-btn {
     background: linear-gradient(135deg, #17ead9, #6078ea);
     color: white;
-    padding: 12px 22px;
+    padding: 12px 20px;
     border-radius: 10px;
-    text-decoration: none;
     font-weight: bold;
     transition: 0.3s ease-in-out;
-}
-
-.profile-header .edit-btn:hover {
-    background: linear-gradient(135deg, #0fc9c9, #5a6eea);
-    transform: scale(1.1);
-}
-
-/* Info Section */
-.profile-info {
-    background: rgba(255, 255, 255, 0.1);
-    margin-top: 20px;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.profile-info h2 {
-    font-size: 22px;
-    color: white;
-    margin-bottom: 12px;
-}
-
-.profile-info p {
-    font-size: 18px;
-    color: #ddd;
-    margin-bottom: 10px;
-}
-
-/* Buttons */
-button {
-    padding: 14px 18px;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: 0.3s ease-in-out;
 }
 
-button:hover {
-    opacity: 0.9;
+.update-btn:hover {
+    background: linear-gradient(135deg, #0fc9c9, #5a6eea);
+    transform: scale(1.05);
 }
 
-.edit-btn {
-    background: linear-gradient(135deg, #17ead9, #6078ea);
-    color: white;
-}
-
+/* Delete Button */
 .delete-btn {
     background: linear-gradient(135deg, #ff416c, #ff4b2b);
     color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
 }
 
 .delete-btn:hover {
     background: linear-gradient(135deg, #ff1b5b, #ff3a1d);
+    transform: scale(1.05);
 }
 
 /* Footer */
+
+
 footer {
-    margin-top: 80px;
-    background: rgba(255, 255, 255, 0.1);
+    background: #111;
     color: white;
     padding: 30px 20px;
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    backdrop-filter: blur(10px);
 }
 
 .footer-container {
@@ -235,7 +202,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #17ead9;
+    color: #1DBF73; /* Fiverr Green */
 }
 
 /* Social Icons */
@@ -254,7 +221,7 @@ footer {
 
 .social-icons a:hover {
     transform: scale(1.2);
-    color: #17ead9;
+    color: #1DBF73;
 }
 
 /* Copyright */

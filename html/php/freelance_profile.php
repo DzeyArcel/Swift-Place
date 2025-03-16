@@ -9,7 +9,7 @@ if (!isset($_SESSION['freelancer_id'])) {
 
 $freelancer_id = $_SESSION['freelancer_id'];
 $phone = $address = $skills = $experience = $bio = "";
-$profile_picture = "html/uploads/no-profile-picture-icon-35.png";
+$profile_picture = "../html/uploads/no-profile-picture-icon-35.png";
 
 // Fetch freelancer info
 $stmt = $conn->prepare("SELECT first_name, last_name, email FROM freelancers WHERE id = ?");
@@ -43,33 +43,35 @@ $stmt->close();
 </head>
 <body>
 
-<div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
+<header class="topbar">
+    <div class="logo-container">
+        <img src="../photos/Logos-removebg-preview.png" alt="Logo" class="logo-img">
+    </div>
+    <nav class="nav-links">
+        <ul>
+            <li><a href="freelancer_dashboard.php"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="freelance_profile.php"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="freelanceedit_profile.php"><i class="fas fa-edit"></i> Edit Profile</a></li>
+            <li><a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <!-- Profile Content -->
+    <div class="profile-content">
+        <h1>Freelancer Profile</h1>
         <div class="profile-pic">
             <img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Picture">
         </div>
         <h2><?php echo htmlspecialchars($first_name . ' ' . $last_name); ?></h2>
         <p><?php echo htmlspecialchars($email); ?></p>
-
-        <ul>
-        <li><a href="freelancer_dashboard.php"><i class="fas fa-user"></i> Dashboard</a></li>
-            <li><a href="freelancer_profile.php"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a href="freelanceedit_profile.php"><i class="fas fa-edit"></i> Edit Profile</a></li>
-            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </div>
-
-    <!-- Profile Content -->
-    <div class="profile-content">
-        <h1>Freelancer Profile</h1>
         <p><strong>Phone:</strong> <?php echo htmlspecialchars($phone ?: 'Not set'); ?></p>
         <p><strong>Address:</strong> <?php echo htmlspecialchars($address ?: 'Not set'); ?></p>
         <p><strong>Skills:</strong> <?php echo htmlspecialchars($skills ?: 'Not set'); ?></p>
         <p><strong>Experience:</strong> <?php echo htmlspecialchars($experience ?: 'Not set'); ?></p>
         <p><strong>Bio:</strong> <?php echo htmlspecialchars($bio ?: 'Not set'); ?></p>
 
-        <a href="freelanceedit_profile.php" class="edit-btn"><i class="fas fa-edit"></i> Edit Profile</a>
+       
     </div>
 </div>
 
