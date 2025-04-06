@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete'])) {
     $stmt->bind_param("i", $freelancer_id);
     $stmt->execute();
     $stmt->close();
-    header("Location: freelancer_profile.php");
+    header("Location: freelance_profile.php");
     exit();
 }
 ?>

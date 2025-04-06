@@ -36,27 +36,104 @@ $user_name = $_SESSION["user_name"] ?? "Guest";
             <h1>Welcome, <?php echo htmlspecialchars($user_name); ?>!</h1>
             <h1>Meet Top Freelancers</h1>
             <p>Hire professionals to get your work done efficiently.</p>
-            <button>Start Hiring</button>
+            <button id="post"><a href="post_job.php">Post Jobs</a></button>
         </div>
     </section>
     
     <section class="recommendations">
-        <h2>Freelancer's Services</h2>
-        <div class="service-cards">
-            <div class="card">Service 1</div>
-            <div class="card">Service 2</div>
-            <div class="card">Service 3</div>
-        </div>
-    </section>
+    <h2>Freelancer's Services</h2>
+    <div class="service-cards">
+
+        <?php
+        include 'db.php';
+
+        $query = "SELECT * FROM services ORDER BY created_at DESC";
+        $result = $conn->query($query);
+
+        while ($row = $result->fetch_assoc()):
+            $imagePath = !empty($row['image']) ? '../html/uploads/' . $row['image'] : 'default-service.jpg';
+        ?>
+            <div class="card">
+                <img class="service-img" src="<?= $imagePath ?>" alt="Service Image">
+                <div class="card-content">
+                    <h3><?= htmlspecialchars($row['service_title']) ?></h3>
+                    <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
+                    <p><strong>Expertise:</strong> <?= htmlspecialchars($row['expertise']) ?></p>
+                    <p><strong>Price:</strong> $<?= number_format($row['price'], 2) ?></p>
+                    <p><?= htmlspecialchars($row['description']) ?></p>
+                    <p><strong>Rating:</strong> <?= number_format($row['rating'], 1) ?> ⭐</p>
+
+                    <!-- Rating Form -->
+                    <form action="php/rate_service.php" method="post" class="rating-form">
+                        <input type="hidden" name="service_id" value="<?= $row['id'] ?>">
+                        <div class="stars">
+                            <?php for ($i = 5; $i >= 1; $i--): ?>
+                                <input type="radio" name="rating" id="star<?= $i . '_' . $row['id'] ?>" value="<?= $i ?>">
+                                <label for="star<?= $i . '_' . $row['id'] ?>">★</label>
+                            <?php endfor; ?>
+                        </div>
+                        <button type="submit">Rate</button>
+                    </form>
+                </div>
+            </div>
+        <?php endwhile; ?>
+
+    </div>
+</section>
+
+
+
     
-    <section class="browsing-history">
-        <h2>Jobs</h2>
-        <div class="service-cards">
-            <div class="card">Freelancer 1</div>
-            <div class="card">Freelancer 2</div>
-            <div class="card">Freelancer 3</div>
-        </div>
-    </section>
+    <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+include 'db.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$client_id = $_SESSION['user_id'];
+
+$conn = new mysqli("localhost", "root", "", "swiftplace");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM jobs WHERE client_id = ? ORDER BY created_at DESC";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $client_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+
+<!-- 👇 JOB LIST DESIGN SECTION -->
+<section class="job-section">
+    <h2>Your Posted Jobs</h2>
+    <div class="job-grid">
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="job-card">
+                <h3><?= htmlspecialchars($row['job_title']) ?></h3>
+                <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
+                <p><strong>Budget:</strong> $<?= number_format($row['budget'], 2) ?></p>
+                <p><strong>Deadline:</strong> <?= htmlspecialchars($row['deadline']) ?></p>
+                <p><strong>Skills:</strong> <?= htmlspecialchars($row['required_skill']) ?></p>
+                <p><strong>Type:</strong> <?= htmlspecialchars($row['job_type']) ?></p>
+                <p><strong>Experience:</strong> <?= htmlspecialchars($row['experience_level']) ?></p>
+                <p class="desc"><?= nl2br(htmlspecialchars($row['job_description'])) ?></p>
+            </div>
+        <?php endwhile; ?>
+    </div>
+</section>
+
+<?php
+$stmt->close();
+$conn->close();
+?>
+
     
     <footer>
         <div class="footer-container">

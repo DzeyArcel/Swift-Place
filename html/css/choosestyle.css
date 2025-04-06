@@ -99,6 +99,6 @@ main{
 }
 
 .login-text a {
-    color: green;
+    color: rgb(96, 0, 128);
     text-decoration: none;
 }

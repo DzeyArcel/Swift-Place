@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: url('../photos/pexels-vojtech-okenka-127162-392018.jpg') no-repeat center center/cover;
+   
 }
 
 /* Signup Container */
@@ -87,7 +87,7 @@ input:focus, select:focus {
 
 /* Button Styling */
 button {
-    background-color: #0a8000;
+    background-color: #b705e9;
     color: white;
     border: none;
     padding: 14px;
@@ -100,8 +100,8 @@ button {
 }
 
 button:hover {
-    background-color: #065c00;
-    box-shadow: 0px 5px 15px rgba(10, 128, 0, 0.4);
+    background-color: #670576;
+    box-shadow: 0px 5px 15px rgba(56, 12, 71, 0.4);
     transform: translateY(-2px);
 }
 
@@ -114,13 +114,14 @@ button:hover {
 }
 
 .login-text a, .apply-text a {
-    color: #0a8000;
+    color: #a723cc;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
 }
 
 .login-text a:hover, .apply-text a:hover {
-    color: #065c00;
+    color: #530868;
     text-decoration: underline;
 }
+

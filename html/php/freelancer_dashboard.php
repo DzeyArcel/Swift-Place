@@ -37,24 +37,87 @@ $freelancer_name = isset($_SESSION["freelancer_name"]) ? $_SESSION["freelancer_n
         <div class="hero-content">
             <h1>Welcome, <?php echo htmlspecialchars($freelancer_name); ?>!</h1>
             <p>Find the best freelance projects and start working today.</p>
-            <button>Explore Jobs</button>
+            <button><a href="post_service.php">Post Services</a></button>
         </div>
     </section>
 
     <!-- Job Listings Section -->
     <section class="job-listings">
-        <h2>Available Jobs</h2>
-        <div class="job-cards">
-            <!-- Job cards will be added here -->
+    <h2>Available Jobs</h2>
+    <div class="job-cards">
+        <?php
+        $conn = new mysqli("localhost", "root", "", "swiftplace");
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $result = $conn->query("SELECT * FROM jobs ORDER BY created_at DESC");
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='job-post'>";
+            echo "<h3>" . htmlspecialchars($row['job_title']) . "</h3>";
+            echo "<p class='desc'>" . htmlspecialchars($row['job_description']) . "</p>";
+            echo "<p><strong>Skills:</strong> " . htmlspecialchars($row['required_skill']) . "</p>";
+            echo "<p><strong>Budget:</strong> $" . htmlspecialchars($row['budget']) . "</p>";
+            echo "<p><strong>Deadline:</strong> " . htmlspecialchars($row['deadline']) . "</p>";
+            echo "<p><strong>Type:</strong> " . htmlspecialchars($row['job_type']) . "</p>";
+            echo "<p><strong>Experience:</strong> " . htmlspecialchars($row['experience_level']) . "</p>";
+            echo "<form action='apply.php' method='post'>
+                    <input type='hidden' name='job_id' value='" . $row['id'] . "'>
+                    <button class='apply-btn' type='submit'>Apply</button>
+                  </form>";
+            echo "</div>";
+        }
+
+        $conn->close();
+        ?>
+    </div>
+</section>
+
         </div>
     </section>
 
-    <section class="job-listings">
-        <h2>Services</h2>
-        <div class="job-cards">
-            <!-- Services will be added here -->
-        </div>
-    </section>
+    <section class="service-listings">
+    <h2>Explore Freelance Services</h2>
+    <div class="service-cards">
+        <?php
+        include 'db.php';
+        $query = "SELECT s.*, CONCAT(f.first_name, ' ', f.last_name) AS freelancer_name 
+                  FROM services s 
+                  JOIN freelancers f ON s.freelancer_id = f.id 
+                  ORDER BY s.created_at DESC";
+
+        $result = $conn->query($query);
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='service-card'>";
+                if (!empty($row['media_path'])) {
+                    echo "<img src='" . $row['media_path'] . "' alt='Service Image' class='service-img'>";
+                } else {
+                    echo "<div class='placeholder-img'>No Image</div>";
+                }
+
+                echo "<div class='service-info'>";
+                echo "<h4>" . htmlspecialchars($row['freelancer_name']) . "</h4>";
+                echo "<p class='title'>" . htmlspecialchars($row['service_title']) . "</p>";
+                echo "<p class='desc'>" . htmlspecialchars($row['description']) . "</p>";
+                echo "<p class='category'>Category: " . htmlspecialchars($row['category']) . "</p>";
+                echo "<p class='expertise'>Expertise: " . htmlspecialchars($row['skills']) . "</p>";
+                echo "<p class='price'>Price: $" . number_format($row['price'], 2) . "</p>";
+                echo "<p class='rating'>Rating: ★ " . number_format($row['rating'], 1) . "</p>";
+                echo "</div></div>";
+            }
+        } else {
+            echo "<p>No services posted yet.</p>";
+        }
+        ?>
+    </div>
+</section>
+
+
+
 
     <footer>
         <div class="footer-container">

@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swift Place - Find Your Next Gig</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
-        <div class="logo-container">
-            <img src="../html/photos/Logos-removebg-preview.png" alt="Logo" class="logo-img">
-        </div>
+        <nav>
         <div class="nav-container">
-            <nav>
+        <div class="nav-left-container">
+            <div class="logo-container">
+                <img src="../html/photos/Logos-removebg-preview.png" alt="Logo" class="logo-img">
+            </div>
+           
                 <ul class="nav-left">
                     <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
@@ -26,12 +30,14 @@
                         </ul>
                     </li>
                 </ul>
-            </nav>
+        </div>
             <div class="nav-right">
                 <a href="../html/register.html" class="btn">Sign Up</a>
             </div>
         </div>
+    </nav>
     </header>
+    <div id="loader"></div>
     
     <!-- FontAwesome for Icons -->
     <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
@@ -78,7 +84,7 @@
             <div class="benefit">
                 <i class="fa-solid fa-lock"></i>
                 <h3>Secure & Reliable</h3>
-                <p>Work with trusted professionals and enjoy safe payments.</p>
+                <p>Work with trusted professionals.</p>
             </div>
             <div class="benefit">
                 <i class="fa-solid fa-layer-group"></i>
@@ -137,7 +143,7 @@
                     </div>
                 </div>
             </div>
-            <a href="register.html" class="btn">Get Started</a>
+            <a href="register.html" class="btn-premium">Get Started</a>
         </div>
     </div>
 </section>
@@ -168,5 +174,7 @@
     
 
 </body>
+<script src="../html/jscript/index.js"></script>
+    
 <script src="https://kit.fontawesome.com/YOUR_FONT_AWESOME_KIT.js" crossorigin="anonymous"></script>
 </html>

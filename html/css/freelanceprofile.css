@@ -1,11 +1,10 @@
 /* Import Poppins Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e1e2e, #3c3c5e);
-    color: white;
+    background: linear-gradient(135deg, #221F3B, #050505);
+    color: #EBEBEB;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -20,8 +19,8 @@ body {
 /* Top Bar - Premium Gradient */
 .topbar {
     width: 100%;
-    background: linear-gradient(135deg, #5c258d, #4389a2);
-    color: white;
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
+    color: #EBEBEB;
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
@@ -33,7 +32,7 @@ body {
     height: 70px;
     z-index: 1000;
     transition: 0.4s ease-in-out;
-    }
+}
 
 /* Logo Styling */
 .logo-container {
@@ -72,7 +71,7 @@ body {
 /* Navigation Buttons - Sleek Look */
 .nav-links ul li a {
     text-decoration: none;
-    color: white;
+    color: #EBEBEB;
     font-size: 16px;
     font-weight: 500;
     display: flex;
@@ -82,9 +81,6 @@ body {
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-
-
-
 }
 
 .nav-links ul li a:hover {
@@ -94,15 +90,16 @@ body {
 
 /* Logout Button */
 .logout-btn {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
     padding: 10px 20px;
     border-radius: 8px;
     margin-right: 20px;
     transition: all 0.3s ease-in-out;
+    color: #EBEBEB;
 }
 
 .logout-btn:hover {
-    background: linear-gradient(135deg, #ff1b5b, #ff3a1d);
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
     transform: scale(1.1);
 }
 
@@ -116,7 +113,7 @@ body {
 
 /* Profile Header - Glassmorphism */
 .profile-header {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(111, 74, 142, 0.15);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
@@ -133,13 +130,13 @@ body {
 
 .profile-header h1 {
     font-size: 26px;
-    color: white;
+    color: #EBEBEB;
 }
 
 /* Edit Button */
 .profile-header .edit-btn {
-    background: linear-gradient(135deg, #17ead9, #6078ea);
-    color: white;
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
+    color: #EBEBEB;
     padding: 12px 22px;
     border-radius: 10px;
     text-decoration: none;
@@ -148,7 +145,7 @@ body {
 }
 
 .profile-header .edit-btn:hover {
-    background: linear-gradient(135deg, #0fc9c9, #5a6eea);
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
     transform: scale(1.1);
 }
 
@@ -164,7 +161,7 @@ body {
 
 .profile-info h2 {
     font-size: 22px;
-    color: white;
+    color: #EBEBEB;
     margin-bottom: 12px;
 }
 
@@ -189,17 +186,17 @@ button:hover {
 }
 
 .edit-btn {
-    background: linear-gradient(135deg, #17ead9, #6078ea);
-    color: white;
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
+    color: #EBEBEB;
 }
 
 .delete-btn {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
-    color: white;
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
+    color: #EBEBEB;
 }
 
 .delete-btn:hover {
-    background: linear-gradient(135deg, #ff1b5b, #ff3a1d);
+    background: linear-gradient(135deg, #6F4A8E, #221F3B);
 }
 
 /* Footer */
