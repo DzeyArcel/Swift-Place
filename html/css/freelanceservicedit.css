@@ -1,0 +1,134 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Navbar */
+.logo-img {
+    width: 200px; /* Increased size */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 65px; /* Prevents overflow */
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar input {
+    width: 40%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.navbar nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #1dbf73;
+}
+.edit-service {
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-service h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.edit-service form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-service form input, .edit-service form textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+.edit-service form input:focus, .edit-service form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.edit-service form button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-service form button:hover {
+    background-color: #0056b3;
+}
+
+.edit-service label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.edit-service textarea {
+    height: 150px;
+    resize: none;
+}
+
+select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #007BFF;
+    outline: none;
+}

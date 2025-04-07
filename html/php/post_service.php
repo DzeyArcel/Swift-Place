@@ -25,14 +25,19 @@ if (!isset($_SESSION['freelancer_id'])) {
             <input type="text" name="service_title" placeholder="Service Title" required><br>
 
             <label for="category">Category:</label><br>
-            <select name="category" required>
-                <option value="">--Select Category--</option>
-                <option value="Web Development">Web Development</option>
-                <option value="Graphic Design">Graphic Design</option>
-                <option value="Writing">Writing</option>
-                <option value="Video Editing">Video Editing</option>
+            <!-- Allow the user to type or choose a category from predefined list -->
+            <input type="text" name="category" id="category" placeholder="Type or Choose Category" list="category-list" required><br>
+
+            <datalist id="category-list">
+                <option value="Web Development">
+                <option value="Graphic Design">
+                <option value="Writing">
+                <option value="Video Editing">
+                <option value="Programming">
+                <option value="Music & Audio">
+                <option value="Digital Marketing">
                 <!-- Add more categories as needed -->
-            </select><br>
+            </datalist><br>
 
             <label for="expertise">Expertise Level:</label><br>
             <select name="expertise" required>

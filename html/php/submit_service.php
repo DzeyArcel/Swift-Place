@@ -9,7 +9,10 @@ if (!isset($_SESSION['freelancer_id'])) {
 
 $freelancer_id = $_SESSION['freelancer_id'];
 $title = $_POST['service_title'];
-$category = $_POST['category'];
+
+// Check if a custom category was entered, else use the dropdown category
+$category = !empty($_POST['category']) ? $_POST['category'] : null;
+
 $description = $_POST['description'];
 $skills = $_POST['skills'];
 $delivery_time = $_POST['delivery_time'];
@@ -20,6 +23,7 @@ $rating = 0;
 
 $media_path = null;
 
+// Handle media upload if exists
 if (isset($_FILES['media']) && $_FILES['media']['error'] == 0) {
     $upload_dir = '../uploads/';
     if (!is_dir($upload_dir)) {
@@ -32,17 +36,18 @@ if (isset($_FILES['media']) && $_FILES['media']['error'] == 0) {
     move_uploaded_file($_FILES['media']['tmp_name'], $media_path);
 }
 
-// 🔍 Prepare SQL
+// Prepare SQL query to insert data into services table
 $stmt = $conn->prepare("INSERT INTO services 
     (freelancer_id, service_title, category, expertise, description, skills, delivery_time, tags, media_path, price, rating, created_at)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())");
 
 if (!$stmt) {
-    die("Prepare failed: " . $conn->error); // 🔍 Show what's wrong
+    die("Prepare failed: " . $conn->error);
 }
 
 $stmt->bind_param("issssssssdd", $freelancer_id, $title, $category, $expertise, $description, $skills, $delivery_time, $tags, $media_path, $price, $rating);
 
+// Execute and redirect on success
 if ($stmt->execute()) {
     header("Location: freelancer_dashboard.php?success=1");
 } else {

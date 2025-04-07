@@ -25,6 +25,7 @@ $user_name = $_SESSION["user_name"] ?? "Guest";
             </div>
             <input type="text" placeholder="Search for services...">
             <nav>
+               <a href="../php/my_posted_jobs.php">Youre Posted Jobs</a>
                 <a href="../php/client_profile.php">Profile</a>
                 <a href="../php/logout.php">Logout</a>
             </nav>
@@ -83,8 +84,7 @@ $user_name = $_SESSION["user_name"] ?? "Guest";
 
 
 
-    
-    <?php
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -103,7 +103,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM jobs WHERE client_id = ? ORDER BY created_at DESC";
+// Modify query to concatenate first_name and last_name as poster_name
+$sql = "SELECT jobs.*, CONCAT(users.first_name, ' ', users.last_name) AS poster_name 
+        FROM jobs 
+        JOIN users ON jobs.client_id = users.id 
+        WHERE jobs.client_id = ? 
+        ORDER BY jobs.created_at DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $client_id);
 $stmt->execute();
@@ -112,11 +117,12 @@ $result = $stmt->get_result();
 
 <!-- 👇 JOB LIST DESIGN SECTION -->
 <section class="job-section">
-    <h2>Your Posted Jobs</h2>
+    <h2>Posted Jobs</h2>
     <div class="job-grid">
         <?php while ($row = $result->fetch_assoc()): ?>
             <div class="job-card">
                 <h3><?= htmlspecialchars($row['job_title']) ?></h3>
+                <p><strong>Poster/Client:</strong> <?= htmlspecialchars($row['poster_name']) ?></p> <!-- Display Job Poster Full Name -->
                 <p><strong>Category:</strong> <?= htmlspecialchars($row['category']) ?></p>
                 <p><strong>Budget:</strong> $<?= number_format($row['budget'], 2) ?></p>
                 <p><strong>Deadline:</strong> <?= htmlspecialchars($row['deadline']) ?></p>
@@ -133,6 +139,8 @@ $result = $stmt->get_result();
 $stmt->close();
 $conn->close();
 ?>
+
+
 
     
     <footer>

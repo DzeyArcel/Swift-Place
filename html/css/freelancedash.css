@@ -384,3 +384,74 @@ footer p {
     font-size: 14px;
 }
 
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.service-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    color: #888;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.service-info {
+    padding-top: 10px;
+}
+
+.service-info h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.service-info p {
+    margin: 8px 0;
+}
+
+.price {
+    font-weight: 500;
+}
+
+.rating {
+    color: #f39c12;
+}
+
+.expertise, .delivery-time, .tags {
+    font-style: italic;
+    color: #555;
+    margin-top: 5px;
+}
+
+.tags {
+    color: #007BFF; /* Blue color for tags */
+    font-size: 0.9rem;
+}
+
+.tags:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+

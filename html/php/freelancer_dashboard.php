@@ -26,7 +26,7 @@ $freelancer_name = isset($_SESSION["freelancer_name"]) ? $_SESSION["freelancer_n
             </div>
             <input type="text" placeholder="Search for services...">
             <nav>
-                <a href="#">My Jobs</a>
+            <a href="my_services.php">Youre Posted Services</a>
                 <a href="../php/freelance_profile.php">Profile</a> <!-- Fixed path -->
                 <a href="../php/logout.php">Logout</a>
             </nav>
@@ -77,15 +77,16 @@ $freelancer_name = isset($_SESSION["freelancer_name"]) ? $_SESSION["freelancer_n
 
         </div>
     </section>
-
     <section class="service-listings">
     <h2>Explore Freelance Services</h2>
     <div class="service-cards">
         <?php
         include 'db.php';
-        $query = "SELECT s.*, CONCAT(f.first_name, ' ', f.last_name) AS freelancer_name 
-                  FROM services s 
-                  JOIN freelancers f ON s.freelancer_id = f.id 
+
+        // Query to fetch service details with freelancer info
+        $query = "SELECT s.*, CONCAT(f.first_name, ' ', f.last_name) AS freelancer_name
+                  FROM services s
+                  JOIN freelancers f ON s.freelancer_id = f.id
                   ORDER BY s.created_at DESC";
 
         $result = $conn->query($query);
@@ -93,8 +94,10 @@ $freelancer_name = isset($_SESSION["freelancer_name"]) ? $_SESSION["freelancer_n
         if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='service-card'>";
+                
+                // Displaying service image if available
                 if (!empty($row['media_path'])) {
-                    echo "<img src='" . $row['media_path'] . "' alt='Service Image' class='service-img'>";
+                    echo "<img src='" . htmlspecialchars($row['media_path']) . "' alt='Service Image' class='service-img'>";
                 } else {
                     echo "<div class='placeholder-img'>No Image</div>";
                 }
@@ -104,9 +107,25 @@ $freelancer_name = isset($_SESSION["freelancer_name"]) ? $_SESSION["freelancer_n
                 echo "<p class='title'>" . htmlspecialchars($row['service_title']) . "</p>";
                 echo "<p class='desc'>" . htmlspecialchars($row['description']) . "</p>";
                 echo "<p class='category'>Category: " . htmlspecialchars($row['category']) . "</p>";
-                echo "<p class='expertise'>Expertise: " . htmlspecialchars($row['skills']) . "</p>";
+                echo "<p class='skills'>Skills: " . htmlspecialchars($row['skills']) . "</p>";
+                
+                // Displaying expertise, delivery time, and tags
+                echo "<p class='expertise'>Expertise: " . htmlspecialchars($row['expertise']) . "</p>";
+                echo "<p class='delivery-time'>Delivery Time: " . htmlspecialchars($row['delivery_time']) . " days</p>";
+
+                // Displaying tags as a comma-separated list
+                $tags = htmlspecialchars($row['tags']);
+                echo "<p class='tags'>Tags: " . $tags . "</p>";
+
                 echo "<p class='price'>Price: $" . number_format($row['price'], 2) . "</p>";
-                echo "<p class='rating'>Rating: ★ " . number_format($row['rating'], 1) . "</p>";
+                
+                // Displaying rating if available
+                if (isset($row['rating']) && $row['rating'] !== null) {
+                    echo "<p class='rating'>Rating: ★ " . number_format($row['rating'], 1) . "</p>";
+                } else {
+                    echo "<p class='rating'>No ratings yet</p>";
+                }
+                
                 echo "</div></div>";
             }
         } else {
