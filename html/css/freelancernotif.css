@@ -1,0 +1,171 @@
+/* General styles for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Notification section */
+.notifications {
+    margin: 10px auto;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+}
+
+.notifications h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.notification-item {
+    position: relative; /* Set position to relative to position the delete button inside it */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    padding-right: 35px; /* Leave space on the right for the delete button */
+}
+
+.notification-item:hover {
+    background-color: #e0e0e0;
+}
+
+.notification-item.unread {
+    background-color: #d1e7dd;
+}
+
+.notification-item a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.notification-item .timestamp {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Position the delete button at the bottom-right of the notification */
+.notification-item .delete-notification {
+    position: absolute;
+    bottom: 5px; /* Position at the bottom of the notification item */
+    right: 10px; /* Position 10px from the right edge */
+    color: red;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.notification-item .delete-notification:hover {
+    text-decoration: underline;
+}
+
+/* Container for unread notifications */
+.unread {
+    font-weight: bold;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .notifications {
+        margin: 10px;
+        padding: 15px;
+        width: 100%;
+    }
+
+    .notification-item {
+        padding: 8px 10px;
+    }
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+    width: 180px;
+    height: auto;
+    max-height: 60px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #1dbf73;
+}
+
+/* Notification item styles */
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+    background-color: #e0e0e0;
+}
+
+.notification-item.unread {
+    background-color: #d1e7dd;
+}
+
+.notification-item a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.notification-item .timestamp {
+    font-size: 12px;
+    color: #888;
+}
+
+.notification-item .delete-notification {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: red;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.notification-item .delete-notification:hover {
+    text-decoration: underline;
+}

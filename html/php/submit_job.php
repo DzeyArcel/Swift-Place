@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php'; // include your database connection
+include 'db.php'; // your database connection
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -18,19 +18,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $type = $_POST['job_type'];
     $experience = $_POST['experience_level'];
 
-    // Use prepared statement to prevent SQL injection
     $conn = new mysqli("localhost", "root", "", "swiftplace");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
+    // Insert the job
     $stmt = $conn->prepare("INSERT INTO jobs (client_id, job_title, job_description, category, budget, deadline, required_skill, job_type, experience_level) 
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
     $stmt->bind_param("isssdssss", $client_id, $title, $description, $category, $budget, $deadline, $skills, $type, $experience);
 
     if ($stmt->execute()) {
+        $job_id = $stmt->insert_id;
+
+        // ✅ Notify all freelancers
+        $freelancers = $conn->query("SELECT id FROM freelancers");
+        if ($freelancers) {
+            while ($row = $freelancers->fetch_assoc()) {
+                $freelancer_id = $row['id'];
+                $message = "New job posted: $title";
+                $link = "job-details.php?id=$job_id"; // Update path if needed
+
+                $notify = $conn->prepare("INSERT INTO notifications (user_id, type, message, link) VALUES (?, 'freelancer', ?, ?)");
+                $notify->bind_param("iss", $freelancer_id, $message, $link);
+                $notify->execute();
+                $notify->close();
+            }
+        }
+
         echo "<script>alert('Job posted successfully!'); window.location.href = 'client-dashboard.php';</script>";
     } else {
         echo "Error: " . $stmt->error;

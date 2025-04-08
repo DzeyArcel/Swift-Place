@@ -95,7 +95,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$client_id = $_SESSION['user_id'];
+$client_id = $_SESSION['user_id']; // You still need this for checking session
 
 $conn = new mysqli("localhost", "root", "", "swiftplace");
 
@@ -103,21 +103,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Modify query to concatenate first_name and last_name as poster_name
+// Modify query to fetch all jobs, remove the filter by client_id
 $sql = "SELECT jobs.*, CONCAT(users.first_name, ' ', users.last_name) AS poster_name 
         FROM jobs 
         JOIN users ON jobs.client_id = users.id 
-        WHERE jobs.client_id = ? 
-        ORDER BY jobs.created_at DESC";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $client_id);
-$stmt->execute();
-$result = $stmt->get_result();
+        ORDER BY jobs.created_at DESC"; // No WHERE clause anymore
+$result = $conn->query($sql);
 ?>
 
 <!-- 👇 JOB LIST DESIGN SECTION -->
 <section class="job-section">
-    <h2>Posted Jobs</h2>
+    <h2>Explore Jobs</h2>
     <div class="job-grid">
         <?php while ($row = $result->fetch_assoc()): ?>
             <div class="job-card">
@@ -130,15 +126,13 @@ $result = $stmt->get_result();
                 <p><strong>Type:</strong> <?= htmlspecialchars($row['job_type']) ?></p>
                 <p><strong>Experience:</strong> <?= htmlspecialchars($row['experience_level']) ?></p>
                 <p class="desc"><?= nl2br(htmlspecialchars($row['job_description'])) ?></p>
+                <!-- You can add an Apply button here if required -->
             </div>
         <?php endwhile; ?>
     </div>
 </section>
 
-<?php
-$stmt->close();
-$conn->close();
-?>
+
 
 
 
