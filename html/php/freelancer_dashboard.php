@@ -60,6 +60,7 @@ $result = $stmt->get_result();
             <div class="logo-container">
                 <img src="../photos/Logos-removebg-preview.png" alt="Logo" class="logo-img">
             </div>
+            <input type="text" placeholder="Search for services...">
             <nav>
                 <a href="my_services.php">Your Posted Services</a>
                 <a href="../php/freelance_profile.php">Profile</a>
@@ -165,9 +166,9 @@ $result = $stmt->get_result();
                 // Display the name of the client who posted the job
                 echo "<p><strong>Posted by:</strong> " . htmlspecialchars($row['poster_name']) . "</p>";
                 // Add Apply button
-                echo "<form action='apply.php' method='post'>
+                echo "<form action='Contact.php' method='post'>
                         <input type='hidden' name='job_id' value='" . $row['id'] . "'>
-                        <button class='apply-btn' type='submit'>Apply</button>
+                        <button class='apply-btn' type='submit'>Contact</button>
                       </form>";
                 echo "</div>";
             }

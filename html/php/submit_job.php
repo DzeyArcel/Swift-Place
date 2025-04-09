@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->execute()) {
         $job_id = $stmt->insert_id;
 
-        // ✅ Notify all freelancers
-        $freelancers = $conn->query("SELECT id FROM freelancers");
+        // ✅ Notify all freelancers excluding the client who posted the job
+        $freelancers = $conn->query("SELECT id FROM freelancers WHERE id != $client_id");
         if ($freelancers) {
             while ($row = $freelancers->fetch_assoc()) {
                 $freelancer_id = $row['id'];
